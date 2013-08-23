@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Atleta implements Serializable {
@@ -12,7 +13,36 @@ public class Atleta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nome;
+    @ManyToOne
+    private Clube clube;
+    @ManyToOne
+    private Categoria categoria;
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Clube getClube() {
+        return clube;
+    }
+
+    public void setClube(Clube clube) {
+        this.clube = clube;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    
     public Long getId() {
         return id;
     }
